@@ -12,7 +12,7 @@ install:
 
 script:
   - pipenv run flake8 .
-  - pytest curso-django --cov=curso-django
+#  - pytest curso-django --cov=curso-django
 
 after_success:
   - codecov

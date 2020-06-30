@@ -135,3 +135,6 @@ dmypy.json
 .settings/
 bin/
 *.sqlite3
+
+# My anotations
+my_anotations/

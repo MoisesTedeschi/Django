@@ -133,14 +133,11 @@ if AWS_ACCESS_KEY_ID:
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400', }
     AWS_PRELOAD_METADATA = True
     AWS_AUTO_CREATE_BUCKET = False
-    # Geração de URL Assinadas
     AWS_QUERYSTRING_AUTH = True
 
     COLLECTFAST_ENABLED = True
 
-    # Uso do próprio domínio do S3
     AWS_S3_CUSTOM_DOMAIN = None
-    # Arquivos não serão públicos
     AWS_DEFAULT_ACL = 'private'
 
     # Static Assets

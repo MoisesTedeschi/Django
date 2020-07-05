@@ -66,8 +66,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'pypro.wsgi.application'
-
-INTERNAL_IPS=config('INTERNAL_IPS', cast=Csv(), default='127.0.0.1')
+INTERNAL_IPS = config('INTERNAL_IPS', cast=Csv(), default='127.0.0.1')
 
 # Configuração Django Debug Tolbar
 if DEBUG:
@@ -169,7 +168,6 @@ if AWS_ACCESS_KEY_ID:
     MEDIA_ROOT = f'/{DEFAULT_S3_PATH}/'
     MEDIA_URL = f'//s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/{DEFAULT_S3_PATH}/'
 
-SENTRY_DSN=config('SENTRY_DSN', default=None)
-
+SENTRY_DSN = config('SENTRY_DSN', default=None)
 if SENTRY_DSN:
     sentry_sdk.init(dsn=SENTRY_DSN, integrations=[DjangoIntegration()])

@@ -130,21 +130,26 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'mediadiles')
 
 COLLECTFAST_ENABLED = False
 
-AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID', default=False)
 
 # STORAGE CONFIGURATION IN S3 AWS
 if AWS_ACCESS_KEY_ID:
     AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
     AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
-    # Controle de cache do S3
-    AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400', }
-    AWS_PRELOAD_METADATA = True
-    AWS_AUTO_CREATE_BUCKET = False
-    AWS_QUERYSTRING_AUTH = True
 
     COLLECTFAST_ENABLED = True
     STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
     COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
+    INSTALLED_APPS.append('s3_folder_storage')
+    INSTALLED_APPS.append('storages')
+
+    # Controle de cache do S3
+    AWS_S3_OBJECT_PARAMETERS = {
+        'CacheControl': 'max-age=86400',
+    }
+    AWS_PRELOAD_METADATA = True
+    AWS_AUTO_CREATE_BUCKET = False
+    AWS_QUERYSTRING_AUTH = True
 
     AWS_S3_CUSTOM_DOMAIN = None
     AWS_DEFAULT_ACL = 'private'
@@ -161,6 +166,3 @@ if AWS_ACCESS_KEY_ID:
     DEFAULT_S3_PATH = 'media'
     MEDIA_ROOT = f'/{DEFAULT_S3_PATH}/'
     MEDIA_URL = f'//s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/{DEFAULT_S3_PATH}/'
-
-    INSTALLED_APPS.append('s3_folder_storage')
-    INSTALLED_APPS.append('storages')

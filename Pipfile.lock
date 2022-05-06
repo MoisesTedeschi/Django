@@ -404,11 +404,10 @@
         },
         "more-itertools": {
             "hashes": [
-                "sha256:1debcabeb1df793814859d64a81ad7cb10504c24349368ccf214c664c474f41f",
-                "sha256:56ddac45541718ba332db05f464bebfb0768110111affd27f66e0051f276fa43"
+                "sha256:a42901a0a5b169d925f6f217cd5a190e32ef54360905b9c39ee7db5313bfec0f",
+                "sha256:c5122bffc5f104d37c1626b8615b511f3427aa5389b94d61e5ef8236bfbc3ddb"
             ],
-            "markers": "python_version >= '3.5'",
-            "version": "==8.10.0"
+            "version": "==8.13.0"
         },
         "packaging": {
             "hashes": [

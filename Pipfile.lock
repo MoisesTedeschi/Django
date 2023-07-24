@@ -403,12 +403,8 @@
             "version": "==0.6.1"
         },
         "more-itertools": {
-            "hashes": [
-                "sha256:1debcabeb1df793814859d64a81ad7cb10504c24349368ccf214c664c474f41f",
-                "sha256:56ddac45541718ba332db05f464bebfb0768110111affd27f66e0051f276fa43"
-            ],
-            "markers": "python_version >= '3.5'",
-            "version": "==8.10.0"
+            "hashes": [],
+            "version": "==10.0.0"
         },
         "packaging": {
             "hashes": [
